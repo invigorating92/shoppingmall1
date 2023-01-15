@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>아이템 만들기 페이지</h1>
+
+    <form method="post" th:action th:object="${item}" enctype="multipart/form-data" accept-charset="UTF-8">
+        <div>
+            <label for="itemName" th:text="#{label.item.itemName}">아이템 이름</label>
+            <input th:field="*{itemName}" type="text" placeholder="아이템 이름 입력">
+            <div>
+                <p th:errors="*{itemName}"></p>
+            </div>
+        </div>
+        <div>
+            <label for="price" th:text="#{label.item.price}">아이템 가격</label>
+            <input th:field="*{price}" type="number" placeholder="아이템 가격 입력">
+            <div>
+                <p th:errors="*{price}"></p>
+            </div>
+        </div>
+        <div>
+            <label for="quantity" th:text="#{label.item.quantity}">아이템 수량</label>
+            <input th:field="*{quantity}" type="number" placeholder="아이템 수량 입력">
+            <div>
+                <p th:errors="*{quantity}"></p>
+            </div>
+        </div>
+
+        <div>
+            <div th:each="type : ${itemTypes}">
+                <input type="radio" th:field="*{itemType}" th:value="${type.name()}">
+                <label th:for="${#ids.prev('itemType')}" th:text="${type.description}">아이템 종류</label>
+            </div>
+            <div th:errors="*{itemType}"></div>
+        </div>
+
+        <div>
+            <label for="itemDetail" th:text="'상품 상세 설명'"></label>
+<!--            <input type="text" th:field="*{itemDetail}" placeholder="상품 상세 설명">-->
+            <textarea rows="5" cols="40" th:field="*{itemDetail}" placeholder="상품 상세 설명"></textarea>
+            <div>
+                <div th:errors="*{itemDetail}"></div>
+            </div>
+        </div>
+
+        <ul>
+            <li>첨부파일<input type="file" name="attachFile"></li>
+            <li>이미지 파일들<input type="file" name="imageFiles" multiple="multiple"></li>
+        </ul>
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">글로벌 오류 메시지</p>
+        </div>
+
+
+        <button type="submit" th:text="'저장'">저장</button>
+        <button type="button" th:onclick="|location.href='@{/items}'|" th:text="'취소'">취소</button>
+
+    </form>
+</body>
+</html>

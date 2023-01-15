@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html th:replace="~{quiz/layout/base :: layout(~{::title}, ~{::section})}"
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Start</title>
+</head>
+<body>
+<section>
+    <h1>퀴즈 시작</h1>
+    <button th:text="'시작하기'" th:onclick="|location.href='@{/quiz/1}'|"></button>
+</section>
+</body>
+</html>

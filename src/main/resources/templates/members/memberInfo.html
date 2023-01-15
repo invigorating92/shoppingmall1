@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>회원정보</h1>
+    <button type="button" th:onclick="|location.href='@{/members/info/modify/{memberId}(memberId=${member.memberId})}'|" th:text="'회원정보수정'"></button>
+    <button type="button" th:onclick="|location.href='@{/}'|" th:text="'뒤로가기'"></button>
+    <hr class="my-4">
+    <h3>아이디</h3>
+    <input type="text" th:value="${member.loginId}" readonly>
+    <h3>회원이름</h3>
+    <input type="text" th:value="${member.name}" readonly>
+    <h3>생년월일</h3>
+    <input type="text" th:value="${member.birthDate}" readonly>
+
+    <button type="button" th:onclick="|location.href='@{/members/info/modify/password}'|" th:text="'비밀번호 변경'"></button>
+
+    <h3>주소</h3>
+    <div th:if="${member.address} != null">
+        <input type="text" th:value="${member.address.totalAddress}" readonly>
+        <button type="button" th:text="'주소수정하기'" th:onclick="|location.href='@{/address/add}'|"></button>
+    </div>
+    <div th:if="${member.address} == null">
+        <button type="button" th:text="'주소입력하기'" th:onclick="|location.href='@{/address/add}'|"></button>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html th:replace="~{quiz/layout/base :: layout(~{::title}, ~{::section})}"
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+</head>
+<body>
+<section>
+<form method="post" th:action>
+    <img th:src="@{C:/Users/invig/OneDrive/바탕 화면/uploadTest/{imageFileName}(imageFileName=${imageFileName})}" width="300" height="300">
+    <div th:text="${quizAnswer.quiz}"></div>
+    <div>안녕하세요</div>
+    <button type="submit" th:text="${answerList.get(0)}" th:name="selAns" th:value="${answerList.get(0)}"></button>
+    <button type="submit" th:text="${answerList.get(2)}" th:name="selAns" th:value="${answerList.get(2)}"></button>
+    <button type="submit" th:text="${answerList.get(1)}" th:name="selAns" th:value="${answerList.get(1)}"></button>
+    <button type="submit" th:text="${answerList.get(3)}" th:name="selAns" th:value="${answerList.get(3)}"></button>
+    <button type="submit" th:text="${answerList.get(4)}" th:name="selAns" th:value="${answerList.get(4)}"></button>
+</form>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html th:replace="~{quiz/layout/base :: layout(~{::title}, ~{::section})}"
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<section>
+<!--    <script th:inline="javascript">-->
+<!--        $(document).ready(function (){-->
+<!--            var errorMessage = [[${errorMessage}]];-->
+<!--            if (errorMessage != null){-->
+<!--                alert(errorMessage);-->
+<!--            }-->
+<!--            bindDomEvent();-->
+<!--        });-->
+
+<!--        function bindDomEvent(){-->
+<!--           $(".custom-file-input").on("change", function (){-->
+<!--               var fileName = $(this).val().split("\\").pop(); //이미지 파일명-->
+<!--               var fileExt = fileName.subString(fileName.lastIndexOf(".")+1); //확장자 추출-->
+<!--               fileExt = fileExt.toLowerCase(); //소문자 변환-->
+
+<!--               if (fileExt != "jpg" && fileExt != "jpeg" && fileExt != "gif" && fileExt != "png" && fileExt != "bmp"){-->
+<!--                   alert("이미지 파일만 등록가능합니다.");-->
+<!--                   return;-->
+<!--               }-->
+<!--               $(this).siblings(".custom-file-label").html(fileName);-->
+<!--           });-->
+<!--        }-->
+<!--    </script>-->
+<form method="post" th:action th:object="${quizAnswer}" enctype="multipart/form-data">
+    <div>
+        <h3>질문</h3>
+        <input type="text" th:field="*{quiz}">
+    </div>
+    <div>
+        <h3>답변</h3>
+        <input type="text" th:field="*{answer}">
+    </div>
+    <div class="custom-file img-div">
+        <input type="file" th:field="*{multipartFile}">
+<!--        <label class="custom-file-label" th:text="'사진올리기'"></label>-->
+    </div>
+
+    <button type="submit">저장</button>
+</form>
+</section>
+</body>
+</html>

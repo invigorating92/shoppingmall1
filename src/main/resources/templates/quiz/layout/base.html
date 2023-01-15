@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+th:fragment="layout(title, content)">
+<head>
+    <meta charset="UTF-8">
+    <title th:replace="${title}">Title</title>
+    <link href="/css/base.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap-theme.min.css">
+
+    <!-- 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header th:insert="~{quiz/layout/header::header}">
+    <h1>헤더입니다.</h1>
+</header>
+
+
+<div th:replace="${content}"></div>
+
+
+<footer th:insert="~{quiz/layout/footer::footer}">
+    <h3>푸터입니다.</h3>
+</footer>
+</body>
+</html>

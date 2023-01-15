@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <button th:onclick="|location.href='@{/members/agree}'|" th:text="#{button.member.add}">회원가입</button>
+    </div>
+    <div>
+        <button th:onclick="|location.href='@{/login}'|" th:text="#{button.member.login}">로그인</button>
+    </div>
+    <div>
+        <button th:onclick="|location.href='@{/login}'|" th:text="'아이디 찾기'">아이디 찾기</button>
+    </div>
+    <div>
+        <button th:onclick="|location.href='@{/login}'|" th:text="'비밀번호 찾기'">비밀번호 찾기</button>
+    </div>
+</body>
+</html>

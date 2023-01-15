@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<hr class="my-4">
+<div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th th:text="#{label.item.number}">번호</th>
+            <th th:text="#{label.item.itemName}">상품명</th>
+            <th th:text="#{label.item.price}">가격</th>
+            <th th:text="#{label.item.quantity}">수량</th>
+            <th th:text="#{label.item.type}">분류</th>
+        </tr>
+        </thead>
+        <h1>쇼핑몰 전체 아이템</h1>
+        <tbody>
+        <tr th:each="item : ${itemList}">
+            <td><a href="item.html" th:href="@{|/shop/${item.itemId}|}" th:text="${item.itemId}">회원id</a></td>
+            <td><a href="item.html" th:href="@{|/shop/${item.itemId}|}" th:text="${item.itemName}">상품명</a></td>
+            <td th:text="${item.price}">10000</td>
+            <td th:text="${item.quantity}">10</td>
+            <td th:text="${item.itemType.description}">10</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<button type="button" th:onclick="|location.href='@{/}'|" th:text="'뒤로가기'">뒤로가기</button>
+</body>
+</html>

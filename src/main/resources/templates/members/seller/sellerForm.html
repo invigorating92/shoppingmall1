@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post" th:action>
+        <div>
+            <h1 th:text="'판매자 등록 페이지입니다'"></h1>
+            <input type="checkbox" th:field="${agreement.agree}">
+            <span th:text="'판매자 등록에 동의합니다.'"></span>
+            <div th:errors="${agreement.agree}"></div>
+        </div>
+
+        <button type="submit" th:text="'판매자 등록하기'">판매자 등록하기</button>
+        <button type="button" th:onclick="|location.href='@{/}'|" th:text="'뒤로가기'"></button>
+    </form>
+
+</body>
+</html>

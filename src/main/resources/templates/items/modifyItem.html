@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form method="post" th:action>
+        <h1> 상품관리-수정</h1>
+        <button type="submit"  th:text="'저장'"></button>
+        <button type="button" th:onclick="|location.href='@{/items}'|" th:text="'뒤로가기'"></button>
+        <hr class="my-4">
+        <h3>상품번호</h3>
+            <input type="text" th:field="${item.itemId}" readonly>
+        <h3>상품명</h3>
+            <input type="text" th:field="${item.itemName}">
+            <p th:errors="${item.itemName}"></p>
+        <h3>상품 개수</h3>
+            <input type="text" th:field="${item.quantity}">
+            <p th:errors="${item.quantity}"></p>
+        <h3>상품 가격</h3>
+            <input type="text" th:field="${item.price}" >
+            <p th:errors="${item.price}"></p>
+        <h3>상품 분류</h3>
+        <div>
+            <div th:each="type : ${itemTypes}">
+                <input type="radio" th:field="${item.itemType}" th:value="${type.name()}">
+                <label th:for="${#ids.prev('itemType')}" th:text="${type.description}">아이템 종류</label>
+            </div>
+        </div>
+        <div>
+            <h3>
+                <label for="itemDetail" th:text="'상품 상세 설명'"></label>
+            </h3>
+                <textarea rows="5" cols="40" th:field="${item.itemDetail}" placeholder="상품 상세 설명"></textarea>
+                <div>
+                    <div th:errors="${item.itemDetail}"></div>
+                </div>
+        </div>
+    </form>
+
+
+</body>
+</html>

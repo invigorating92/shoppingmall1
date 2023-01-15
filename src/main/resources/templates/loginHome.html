@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/loginHome.css">
+</head>
+<body>
+<div th:if="${member} != null">
+    <h1  th:text="|${member.name} 님, 반갑습니다|"> 성공입니당</h1>
+    <h3 th:text="|현재 ${member.name} 님은 ${member.getMemberType().description} 회원입니다.|"></h3>
+</div>
+
+    <div>
+        <button th:onclick="|location.href='@{/logout}'|" th:text="#{button.member.logout}">로그아웃</button>
+    </div>
+    <div>
+        <button type="button" th:onclick="|location.href='@{/members/info}'|" th:text="'회원정보'"></button>
+    </div>
+    <div>
+        <button th:classappend="${member.getMemberType().name()} == 'NORMAL' ? 'btn-appear' : 'btn-disappear'" th:text="'판매자 등록하기'" th:onclick="|location.href='@{/members/seller/register}'|"></button>
+    </div>
+    <div>
+        <button th:classappend="${member.getMemberType().name()} == 'NORMAL' ? 'btn-disappear' : 'btn-appear'" th:onclick="|location.href='@{/items}'|" th:text="#{button.items.manage}">상품관리</button>
+    </div>
+    <div>
+        <button th:onclick="|location.href='@{/shop}'|" th:text="#{button.items.shop}">쇼핑하러가기</button>
+    </div>
+
+</body>
+</html>

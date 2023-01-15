@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <form method="post" th:action th:object="${member}">
+        <div>
+            <label for="loginId" th:text="#{label.member.loginId}"></label>
+            <input type="text" th:field="*{loginId}" placeholder="아이디를 입력하세요">
+            <button type="button"></button>
+            <p th:errors="*{loginId}"></p>
+        </div>
+
+        <div>
+            <label for="name" th:text="#{label.member.name}"></label>
+            <input type="text" th:field="*{name}" placeholder="이름을 입력하세요">
+            <p th:errors="*{name}"></p>
+        </div>
+
+        <div>
+            <label for="birthDate" th:text="#{label.member.birthDate}"></label>
+            <input type="text" th:field="*{birthDate}" placeholder="생년월일을 입력하세요">
+            <p th:errors="*{birthDate}"></p>
+        </div>
+
+        <div>
+            <label for="password" th:text="#{label.member.password}"></label>
+            <input type="password" th:field="*{password}" placeholder="비밀번호를 입력하세요">
+            <p th:errors="*{password}"></p>
+        </div>
+
+        <div>
+            <label for="rePassword" th:text="#{label.member.password}"></label>
+            <input type="password" th:field="*{rePassword}" placeholder="비밀번호를 다시 입력하세요">
+            <p th:errors="*{rePassword}"></p>
+        </div>
+
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">글로벌 오류 메시지</p>
+        </div>
+
+
+        <button type="submit">저장</button>
+        <button type="button" th:onclick="|location.href='@{/}'|">취소</button>
+
+
+    </form>
+
+</body>
+</html>
