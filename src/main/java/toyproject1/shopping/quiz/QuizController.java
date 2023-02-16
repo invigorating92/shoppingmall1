@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -40,6 +43,8 @@ public class QuizController {
 
     @GetMapping("/start")
     public String quizStartPage(){
+        correct=0;
+        wrong=0;
         randomQuiz.clear();
         List<QuizAnswer> all = quizRepository.findAll();
         Collections.shuffle(all);
@@ -136,11 +141,12 @@ public class QuizController {
         return "redirect:/start";
     }
 
-//    @GetMapping("/display")
-//    public ResponseEntity<Resource> imageDisplay(){
-//
-//        return new ResponseEntity<Resource>(HttpStatus.OK);
-//    }
+    @ResponseBody
+    @GetMapping("/display/{filename}")
+    public Resource imageDisplay(@PathVariable String filename) throws MalformedURLException {
+
+        return new UrlResource("file:" + fileDir+filename);
+    }
 
     @GetMapping("/quiz/remove")
     public String removeQuiz(){

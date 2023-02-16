@@ -8,7 +8,7 @@
 <body>
 <section>
 <form method="post" th:action>
-    <img th:src="@{C:/Users/invig/OneDrive/바탕 화면/uploadTest/{imageFileName}(imageFileName=${imageFileName})}" width="300" height="300">
+    <img th:src="@{/display/{filename}(filename = ${quizAnswer.getImgStoreName()})}" width="300" height="400">
     <div th:text="${quizAnswer.quiz}"></div>
     <div>안녕하세요</div>
     <button type="submit" th:text="${answerList.get(0)}" th:name="selAns" th:value="${answerList.get(0)}"></button>
