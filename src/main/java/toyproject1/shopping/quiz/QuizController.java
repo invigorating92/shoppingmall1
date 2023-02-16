@@ -91,7 +91,7 @@ public class QuizController {
         List<QuizAnswer> all = quizRepository.findAll();
         Collections.shuffle(all);
         for(int i=0; i<all.size();i++){
-            if (all.get(i).getAnswer()!=quizAnswer.getAnswer()){
+            if (!all.get(i).getAnswer().equals(quizAnswer.getAnswer())){
                 answerList.add(all.get(i).getAnswer());
             }
             if(answerList.size()==ANSWER_TOTAL_NUM){
@@ -153,6 +153,8 @@ public class QuizController {
         List<QuizAnswer> all = quizRepository.findAll();
         for (QuizAnswer q : all){
             quizRepository.remove(q);
+
+
         }
         return "redirect:/quiz/create";
     }
