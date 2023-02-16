@@ -109,8 +109,8 @@ public class QuizController {
     @PostMapping("/quiz/{quizOrder}")
     public String quizPagePost(@PathVariable int quizOrder, @RequestParam("selAns") String selAns, RedirectAttributes redirectAttributes){
         QuizAnswer quizAnswer = randomQuiz.get(quizOrder);
-        log.info("==================== 정답은={}", quizAnswer.getAnswer());
-        log.info("====================selAns={}", selAns);
+        log.info("===================== 정답은={}", quizAnswer.getAnswer());
+        log.info("=====================selAns={}", selAns);
         if (quizAnswer.getAnswer().equals(selAns)){
             correct++;
         }else{
