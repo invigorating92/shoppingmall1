@@ -60,5 +60,15 @@
         <button type="button" th:onclick="|location.href='@{/items}'|" th:text="'취소'">취소</button>
 
     </form>
+    <form method="post" action enctype="multipart/form-data">
+        <div id="itemType" text="'아이템 타입'">
+
+        </div>
+        <input type="submit" value="Submit">
+    </form>
+<script>
+    let formData = new FormData();
+    formData.append('itemType', 'MEDICAL')
+</script>
 </body>
 </html>

@@ -7,14 +7,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import toyproject1.shopping.domain.entity.Item;
-import toyproject1.shopping.domain.item.ItemRepository;
-import toyproject1.shopping.domain.item.upload.FileStore;
-import toyproject1.shopping.domain.entity.Member;
-import toyproject1.shopping.web.session.SessionConst;
+import toyproject1.shopping.api.shop.domain.Item;
+import toyproject1.shopping.api.shop.repository.ItemRepository;
+import toyproject1.shopping.global.util.FileStore;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Slf4j

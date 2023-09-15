@@ -1,28 +1,25 @@
-package toyproject1.shopping.web.item;
+package toyproject1.shopping.api.shop.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.web.multipart.MultipartFile;
-import toyproject1.shopping.api.shop.domain.ItemType;
+import lombok.*;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Lob;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
-@Data
+@Getter
+@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ItemDTO {
+public class Item extends BaseEntity{
+    //field
+    @Id @GeneratedValue
+    @Column(name = "item_id")
+    private Long itemId;
 
-    private Long ItemId;
+//    private Long totalId;
 
     @NotBlank(message = "상품 이름을 입력해주세요")
     private String itemName;
@@ -43,8 +40,18 @@ public class ItemDTO {
     @NotBlank(message = "상품 상세 설명을 입력해주세요")
     private String itemDetail;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
-    private MultipartFile attachFile; //파일 하나 첨부
+//    private UploadFile attachFile; //파일 하나 첨부
+//
+//    private List<UploadFile> imageFiles; //여러 이미지 파일 첨부
 
-    private List<MultipartFile> imageFiles; //여러 이미지 파일 첨부
+//    public void insertUploadFile(UploadFile attachFile, List<UploadFile> imageFiles){
+//        this.attachFile = attachFile;
+//        this.imageFiles=imageFiles;
+//    }
+    //constructor
+
 }

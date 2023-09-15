@@ -4,7 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import toyproject1.shopping.domain.entity.Member;
+import toyproject1.shopping.api.shop.domain.Member;
 import toyproject1.shopping.web.session.SessionConst;
 
 import javax.servlet.http.HttpServletRequest;
