@@ -1,6 +1,6 @@
 package toyproject1;
 
-import toyproject1.shopping.domain.item.ItemType;
+import toyproject1.shopping.api.shop.domain.ItemType;
 
 public class Test {
 

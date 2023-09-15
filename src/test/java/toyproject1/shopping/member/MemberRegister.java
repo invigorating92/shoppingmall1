@@ -5,11 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
-import toyproject1.shopping.domain.entity.Member;
-import toyproject1.shopping.domain.member.MemberForm;
-import toyproject1.shopping.domain.member.MemberRepository;
-import toyproject1.shopping.domain.member.MemberService;
-import toyproject1.shopping.domain.member.MemberType;
+import toyproject1.shopping.api.shop.domain.Member;
+import toyproject1.shopping.api.user.dto.MemberForm;
+import toyproject1.shopping.api.user.repository.MemberRepository;
+import toyproject1.shopping.api.user.service.MemberService;
+import toyproject1.shopping.api.user.domain.MemberType;
 
 import java.util.List;
 

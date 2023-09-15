@@ -10,10 +10,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import toyproject1.shopping.domain.entity.Address;
-import toyproject1.shopping.domain.entity.Member;
-import toyproject1.shopping.domain.member.MemberRepository;
+import toyproject1.shopping.api.shop.domain.Address;
+import toyproject1.shopping.api.shop.domain.Member;
+import toyproject1.shopping.api.user.repository.MemberRepository;
 import toyproject1.shopping.web.session.SessionConst;
 
 import javax.servlet.http.HttpServletRequest;

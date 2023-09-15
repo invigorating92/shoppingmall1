@@ -1,7 +1,7 @@
 package toyproject1.shopping.web.address;
 
 import org.springframework.stereotype.Service;
-import toyproject1.shopping.domain.entity.Address;
+import toyproject1.shopping.api.shop.domain.Address;
 
 @Service
 public class AddressService {

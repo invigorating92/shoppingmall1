@@ -2,7 +2,7 @@ package toyproject1.shopping.web.filter;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.PatternMatchUtils;
-import toyproject1.shopping.domain.entity.Member;
+import toyproject1.shopping.api.shop.domain.Member;
 import toyproject1.shopping.web.session.SessionConst;
 
 import javax.servlet.*;

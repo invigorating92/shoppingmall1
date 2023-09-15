@@ -7,8 +7,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import toyproject1.shopping.domain.entity.OrderItem;
-import toyproject1.shopping.domain.order.OrderRepository;
+import toyproject1.shopping.api.shop.domain.OrderItem;
+import toyproject1.shopping.api.shop.repository.OrderRepository;
 
 @Slf4j
 @Controller
